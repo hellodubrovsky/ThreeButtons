@@ -54,8 +54,8 @@
 			children = (
 				D819B4312AA64259004226BE /* AppDelegate.swift */,
 				D819B4352AA64259004226BE /* ViewController.swift */,
-				D819B43A2AA6425A004226BE /* Assets.xcassets */,
 				D819B43C2AA6425A004226BE /* LaunchScreen.storyboard */,
+				D819B43A2AA6425A004226BE /* Assets.xcassets */,
 				D819B43F2AA6425A004226BE /* Info.plist */,
 			);
 			path = ThreeButtons;
