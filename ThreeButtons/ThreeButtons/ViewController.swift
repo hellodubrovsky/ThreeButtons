@@ -40,8 +40,13 @@ class ViewController: UIViewController {
 
     @objc
     func actionButton() {
-        let vc = ModalViewController()
-        present(vc, animated: true)
+        let vc = UIViewController()
+        vc.view.backgroundColor = .systemGray2
+        vc.modalPresentationStyle = .pageSheet
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
+        present(vc, animated: true, completion: nil)
     }
 }
 
@@ -51,9 +56,9 @@ class Button: UIButton {
 
     init(title: String) {
         super.init(frame: .zero)
+        self.layer.cornerRadius = 10
         var configuration = UIButton.Configuration.filled()
         configuration.title = title
-        configuration.cornerStyle = .capsule
         configuration.baseForegroundColor = UIColor.white
         configuration.baseBackgroundColor = UIColor.systemBlue
         configuration.image = UIImage(systemName: "arrow.right.circle.fill")
@@ -84,11 +89,10 @@ class Button: UIButton {
         })
         animator.startAnimation()
     }
-}
 
-class ModalViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .gray
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        self.tintColor = .white
+        self.backgroundColor = .systemGray2
     }
 }
